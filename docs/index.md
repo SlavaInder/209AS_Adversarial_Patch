@@ -1,5 +1,4 @@
 ---
-layout: page
-tagline:
+layout: index
 ---
 Hello World
