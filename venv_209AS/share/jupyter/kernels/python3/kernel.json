@@ -1,0 +1,11 @@
+{
+ "language": "python",
+ "display_name": "Python 3",
+ "argv": [
+  "/home/slavchic/Desktop/209AS winter 2020/venv_209AS/bin/python",
+  "-m",
+  "ipykernel_launcher",
+  "-f",
+  "{connection_file}"
+ ]
+}

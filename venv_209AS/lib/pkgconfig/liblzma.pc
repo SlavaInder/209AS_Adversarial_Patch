@@ -1,0 +1,19 @@
+#
+# Author: Lasse Collin
+#
+# This file has been put into the public domain.
+# You can do whatever you want with this file.
+#
+
+prefix=/home/slavchic/Desktop/209AS winter 2020/venv_209AS
+exec_prefix=/home/slavchic/Desktop/209AS winter 2020/venv_209AS
+libdir=/home/slavchic/Desktop/209AS winter 2020/venv_209AS/lib
+includedir=/home/slavchic/Desktop/209AS winter 2020/venv_209AS/include
+
+Name: liblzma
+Description: General purpose data compression library
+URL: https://tukaani.org/xz/
+Version: 5.2.4
+Cflags: -I${includedir}
+Libs: -L${libdir} -llzma
+Libs.private: -pthread -lrt  

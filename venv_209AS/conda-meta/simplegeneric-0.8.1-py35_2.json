@@ -1,0 +1,85 @@
+{
+  "build": "py35_2",
+  "build_number": 2,
+  "channel": "https://repo.anaconda.com/pkgs/main/linux-64",
+  "constrains": [],
+  "depends": [
+    "python >=3.5,<3.6.0a0"
+  ],
+  "extracted_package_dir": "/home/slavchic/miniconda3/pkgs/simplegeneric-0.8.1-py35_2",
+  "features": "",
+  "files": [
+    "lib/python3.5/site-packages/__pycache__/simplegeneric.cpython-35.pyc",
+    "lib/python3.5/site-packages/simplegeneric-0.8.1-py3.5.egg-info/PKG-INFO",
+    "lib/python3.5/site-packages/simplegeneric-0.8.1-py3.5.egg-info/SOURCES.txt",
+    "lib/python3.5/site-packages/simplegeneric-0.8.1-py3.5.egg-info/dependency_links.txt",
+    "lib/python3.5/site-packages/simplegeneric-0.8.1-py3.5.egg-info/top_level.txt",
+    "lib/python3.5/site-packages/simplegeneric.py"
+  ],
+  "fn": "simplegeneric-0.8.1-py35_2.conda",
+  "legacy_bz2_md5": "d8fcca1c18031217f0d27ac30654400e",
+  "legacy_bz2_size": 9378,
+  "license": "Zope Public",
+  "link": {
+    "source": "/home/slavchic/miniconda3/pkgs/simplegeneric-0.8.1-py35_2",
+    "type": 1
+  },
+  "md5": "5f16e02db788b8109481768673da7447",
+  "name": "simplegeneric",
+  "package_tarball_full_path": "/home/slavchic/miniconda3/pkgs/simplegeneric-0.8.1-py35_2.conda",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "lib/python3.5/site-packages/__pycache__/simplegeneric.cpython-35.pyc",
+        "path_type": "hardlink",
+        "sha256": "f987e88bf37d2ebb497765601960ca2c9d84afc7c703a7644d2ce6a0a9068e0d",
+        "sha256_in_prefix": "f987e88bf37d2ebb497765601960ca2c9d84afc7c703a7644d2ce6a0a9068e0d",
+        "size_in_bytes": 3166
+      },
+      {
+        "_path": "lib/python3.5/site-packages/simplegeneric-0.8.1-py3.5.egg-info/PKG-INFO",
+        "path_type": "hardlink",
+        "sha256": "d6d6450f6b011a2bf4b1117bf08acbd037d109683f797373d95fba9e4e8e6f95",
+        "sha256_in_prefix": "d6d6450f6b011a2bf4b1117bf08acbd037d109683f797373d95fba9e4e8e6f95",
+        "size_in_bytes": 10836
+      },
+      {
+        "_path": "lib/python3.5/site-packages/simplegeneric-0.8.1-py3.5.egg-info/SOURCES.txt",
+        "path_type": "hardlink",
+        "sha256": "fdce8930aa7ba023c1f9821bc7df3b84abb8ddb2664c970f36ce781bea79f276",
+        "sha256_in_prefix": "fdce8930aa7ba023c1f9821bc7df3b84abb8ddb2664c970f36ce781bea79f276",
+        "size_in_bytes": 210
+      },
+      {
+        "_path": "lib/python3.5/site-packages/simplegeneric-0.8.1-py3.5.egg-info/dependency_links.txt",
+        "path_type": "hardlink",
+        "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "sha256_in_prefix": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "size_in_bytes": 1
+      },
+      {
+        "_path": "lib/python3.5/site-packages/simplegeneric-0.8.1-py3.5.egg-info/top_level.txt",
+        "path_type": "hardlink",
+        "sha256": "cb2dca30718daffdb9d7eb991745904b609384ff7bbdb9c800a7200747e4d165",
+        "sha256_in_prefix": "cb2dca30718daffdb9d7eb991745904b609384ff7bbdb9c800a7200747e4d165",
+        "size_in_bytes": 14
+      },
+      {
+        "_path": "lib/python3.5/site-packages/simplegeneric.py",
+        "path_type": "hardlink",
+        "sha256": "a2ff8624f00f10111c3c54b2537dc7f38837bd77f947f66f860bb54b441d9780",
+        "sha256_in_prefix": "a2ff8624f00f10111c3c54b2537dc7f38837bd77f947f66f860bb54b441d9780",
+        "size_in_bytes": 2740
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "None",
+  "sha256": "64ea772b6fbb1b617abecbdc24cc210bd27215514501d1fe4647e9c23d40732f",
+  "size": 9944,
+  "subdir": "linux-64",
+  "timestamp": 1518030856175,
+  "track_features": "",
+  "url": "https://repo.anaconda.com/pkgs/main/linux-64/simplegeneric-0.8.1-py35_2.conda",
+  "version": "0.8.1"
+}
