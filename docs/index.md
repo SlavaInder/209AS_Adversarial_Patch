@@ -8,7 +8,7 @@ An adversarial patch robust against wrinkles, specifically folds, for adaptabili
 
 # Project Timeline
 
-<html>
+<html><!--
 <style>
     * {
       box-sizing: border-box;
@@ -33,7 +33,6 @@ An adversarial patch robust against wrinkles, specifically folds, for adaptabili
     text-align: left;
     padding: 8px;
   }
-
   tr:nth-child(even) {
     background-color: #dddddd;
   }
@@ -42,7 +41,7 @@ An adversarial patch robust against wrinkles, specifically folds, for adaptabili
     clear: both;
     display: table;
   }
-  </style>
+  </style> -->
   <table style="width:100%">
     <tr>
       <th>Time Period</th>
