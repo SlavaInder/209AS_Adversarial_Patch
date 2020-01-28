@@ -2,7 +2,7 @@
 layout: page
 tagline:
 ---
-
+<html>
 {% for post in paginator.posts %}
 
 <article class="home">
@@ -72,3 +72,4 @@ tagline:
   {% endif %}
 
 </ul>
+</html>
