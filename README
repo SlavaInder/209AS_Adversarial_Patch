@@ -8,5 +8,6 @@ Our new idea:
     - our particular target is object detection within traffic video surveillance 
         - our side thought was to explore the possibility of tricking the model into additional misclassifications
 
+NOtes for repo setup: you have to manually donwload inception 3 weights from tf. repo, create wenv 3with python=3.5 and create folder for graphs.
 
 https://slavainder.github.io/209AS-winter-2020/ 
