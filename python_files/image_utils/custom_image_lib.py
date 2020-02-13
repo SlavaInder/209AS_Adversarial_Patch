@@ -38,29 +38,32 @@ def show_probs(img, p, labels, correct_class=None, target_class=None):
 # Input images should be scaled to the range of [-1, 1] and have format (num_images, 299, 299, 3)
 # this function takes as an input an array of *.jpg images (because *.png-s actually have 4-dims),
 # crops them to the size 300x300, and convert them to proper shape
-def preprocessing(raw_pillow_image):
+def preprocessing(raw_pillow_images):
+    # init output array
+    np_images = np.zeros(shape=(len(raw_pillow_images), 300, 300, 3))
 
-    # scale the image in a way that maps its smaller dimension to the length of 300
-    wide = raw_pillow_image.width > raw_pillow_image.height
-    if wide:
-        new_width = int(raw_pillow_image.width * 300 / raw_pillow_image.height)
-        new_height = 300
-    else:
-        new_width = 300
-        new_height = int(raw_pillow_image.height * 300 / raw_pillow_image.width)
+    for i in range(len(raw_pillow_images)):
+        # scale the image in a way that maps its smaller dimension to the length of 300
+        wide = raw_pillow_images[i].width > raw_pillow_images[i].height
+        if wide:
+            new_width = int(raw_pillow_images[i].width * 300 / raw_pillow_images[i].height)
+            new_height = 300
+        else:
+            new_width = 300
+            new_height = int(raw_pillow_images[i].height * 300 / raw_pillow_images[i].width)
 
-    # catually scale image 
-    raw_pillow_image = raw_pillow_image.resize((new_width, new_height))
+        # actually scale image 
+        raw_pillow_images[i] = raw_pillow_images[i].resize((new_width, new_height))
     
-    # crop exceeding dimension
-    raw_pillow_image = raw_pillow_image.crop((0, 0, 300, 300))
+        # crop exceeding dimension
+        raw_pillow_images[i] = raw_pillow_images[i].crop((0, 0, 300, 300))
     
-    # scale to [0, 1]
-    pillow_image = (np.asarray(raw_pillow_image) / 255.0).astype(np.float32)
+        # scale to [0, 1]
+        pillow_image = (np.asarray(raw_pillow_images[i]) / 255.0).astype(np.float32)
     
-    np_image = ((pillow_image - 0.5) * 2).reshape(1, 300, 300, 3)
+        np_images[i] = ((pillow_image - 0.5) * 2).reshape(1, 300, 300, 3)
         
-    return np_image
+    return np_images
 
 
 # this function rescales output of the learning from [-1; 1] to [0, 1] which can be used by PIL

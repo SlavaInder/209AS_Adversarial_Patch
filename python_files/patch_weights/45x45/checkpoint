@@ -1,0 +1,2 @@
+model_checkpoint_path: "patch45x45"
+all_model_checkpoint_paths: "patch45x45"
