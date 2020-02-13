@@ -50,9 +50,9 @@ def _shift(folded_patches, x_shift, y_shift):
 
 # this function creates copies of patch
 @tf.function
-def multiply(single_patch, multipler):
+def multiply(single_patch, train_images):
     single_patch = tf.expand_dims(single_patch, axis=0)
-    patch_array = tf.tile(single_patch, (multipler, 1, 1, 1))	
+    patch_array = tf.tile(single_patch, (tf.shape(train_images)[0], 1, 1, 1))	
     
     return(patch_array)
 
