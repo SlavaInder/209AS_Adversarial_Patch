@@ -44,16 +44,15 @@ def shift(folded_patches, x_shift, y_shift):
 # this function maps patches to different places on the image
 @tf.function
 def _shift(folded_patches, x_shift, y_shift):
-	# get dimensions of the patch
-	dims = tf.shape(folded_patches)
+	# do this using loop
+	pass
 
-	# update patch lenth
-	a = tf.concat((folded_patches, -2 * tf.ones(shape=(dims[0], dims[1], 300 - dims[2], 3))), axis=2)
 
-	# update patch height
-	b = tf.concat((a, -2 * tf.ones(shape=(dims[0], 300 - dims[1], 300, 3))), axis=1)
+# this function creates copies of patch
+@tf.function
+def multiply(single_patch, multipler):
+    single_patch = tf.expand_dims(single_patch, axis=0)
+    patch_array = tf.tile(single_patch, (multipler, 1, 1, 1))	
+    
+    return(patch_array)
 
-	# shift the patch to the place needed
-	mapped_patches = tf.roll(b, shift = (x_shift, y_shift), axis = (2, 1))
-
-	return(mapped_patches)
