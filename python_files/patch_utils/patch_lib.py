@@ -30,7 +30,7 @@ def shift(folded_patches, x_shift, y_shift):
 	dims = tf.shape(folded_patches)
 
 	# update patch lenth
-	a = tf.concat((folded_patches, -2 * tf.ones(shape=(dims[0], dims[1], 300 - dims[2], 3))), axis=2)
+	a = tf.concat((folded_patches, -2 * tf.ones(shape=(dims[0], dims[1], 300 - dims[2], 3), dtype=tf.float32)), axis=2)
 
 	# update patch height
 	b = tf.concat((a, -2 * tf.ones(shape=(dims[0], 300 - dims[1], 300, 3))), axis=1)
