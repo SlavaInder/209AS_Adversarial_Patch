@@ -5,10 +5,14 @@ import PIL
 
 # allows to plot a single image or one of the images from the array
 def show_image(img_array, imge_ind = 0):
-    if img_array.shape[0] == 1:
+    if len(img_array.shape) == 3:
+        img = img_array
+    elif img_array.shape[0] == 1:
         img = img_array.reshape(300, 300, 3)
     else:
         img = img_array[imge_ind]
+
+    plt.figure(figsize=(5,5))    
     plot = plt.imshow(img)
     plt.show()
 
