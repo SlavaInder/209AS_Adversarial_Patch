@@ -41,13 +41,6 @@ def shift(folded_patches, x_shift, y_shift):
 	return(mapped_patches)
 
 
-# this function maps patches to different places on the image
-@tf.function
-def _shift(folded_patches, x_shift, y_shift):
-	# do this using loop
-	pass
-
-
 # this function creates copies of patch
 @tf.function
 def multiply(single_patch, train_images):
@@ -55,4 +48,30 @@ def multiply(single_patch, train_images):
     patch_array = tf.tile(single_patch, (tf.shape(train_images)[0], 1, 1, 1))	
     
     return(patch_array)
+
+
+@tf.function
+def fold(array_images, starting, thickness):
+    # Array of images
+    # Float32, and int32 
+    
+    mask_fill_thickness = tf.zeros([tf.shape(array_images)[0], tf.shape(array_images)[1], thickness, 3], tf.float32, name='mask_fill_thickness')
+    mask_left = tf.slice(array_images, [0, 0, 0, 0], [-1, -1, starting, -1]) 
+    mask_right_start = starting+thickness
+    mask_right = tf.slice(array_images, [0, 0, mask_right_start, 0], [-1, -1, -1, -1])
+    mask_appended = tf.concat([mask_left, mask_right], axis=2, name='mask_appended')
+    mask_without_fill = tf.concat([mask_left, mask_right, mask_fill_thickness], axis=2, name='mask_appended')    
+    
+    # Let's add the -2 fills now 
+    mask_fill = tf.ones([tf.shape(array_images)[0], tf.shape(array_images)[1], thickness, 3], 
+                        tf.float32, 
+                        name='mask_fill')
+    mask_fill_two = tf.subtract(mask_fill, 3, name='mask_fill_two')
+    remaining = tf.shape(array_images)[2] - thickness
+    mask_fill_zeros = tf.zeros([tf.shape(array_images)[0], tf.shape(array_images)[1], remaining, 3], tf.float32, name='mask_fill_zeroes')    
+        
+    mask_fill_final = tf.concat([mask_fill_zeros, mask_fill_two], axis=2, name='mask_fill_final')    
+    out = tf.add(mask_without_fill, mask_fill_final)
+    
+    return out
 

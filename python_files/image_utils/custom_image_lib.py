@@ -1,3 +1,4 @@
+import random
 import numpy as np
 import matplotlib.pyplot as plt
 import PIL
@@ -73,3 +74,26 @@ def preprocessing(raw_pillow_images):
 # this function rescales output of the learning from [-1; 1] to [0, 1] which can be used by PIL
 def postprocessing(image_array):
 	return ((image_array / 2) + 0.5)
+
+
+# this function samples random images for training 
+def sample_images(classes, num_images, valid_range=(0, 10), folder='./ImageNet/content/'):
+    # init array of raw images
+    my_raw_pillow_images = []
+
+    # sample raw images
+    for i in range(num_images):
+        # sample class of the image
+        current_class = random.choice(classes)
+        # sample random index of image
+        index = np.random.randint(valid_range[0], valid_range[1])
+        # append new image
+        my_raw_pillow_images.append(PIL.Image.open(folder + current_class + 's/' + current_class + str(index) + '.jpg'))
+
+    # preprocess random images
+    preprocessed_images = preprocessing(my_raw_pillow_images)
+
+    return preprocessed_images
+
+
+
