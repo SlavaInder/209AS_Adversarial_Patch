@@ -9,7 +9,7 @@ def show_image(img_array, imge_ind = 0):
     if len(img_array.shape) == 3:
         img = img_array
     elif img_array.shape[0] == 1:
-        img = img_array.reshape(300, 300, 3)
+        img = img_array.reshape(img_array.shape[1], img_array.shape[2], img_array.shape[3])
     else:
         img = img_array[imge_ind]
 
