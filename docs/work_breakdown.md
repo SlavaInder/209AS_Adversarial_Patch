@@ -5,40 +5,6 @@ layout: default
 # Project Timeline
 
 <html>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-  #center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-  }
-  .column {
-    float: left;
-    width: 50%;
-    padding: 5px;
-  }
-  table {
-    border-collapse: collapse;
-    width: 50%;
-  }
-  td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-  }
-
-  tr:nth-child(even) {
-    background-color: #dddddd;
-  }
-  .row::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
-  </style>
   <table style="width:100%">
     <tr>
       <th>Time Period</th>
