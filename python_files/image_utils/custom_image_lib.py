@@ -17,6 +17,7 @@ def show_image(img_array, imge_ind = 0):
     plot = plt.imshow(img)
     plt.show()
 
+
 # image and probs should be for single class!
 def show_probs(img, p, labels, correct_class=None, target_class=None):
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 8))
@@ -48,6 +49,9 @@ def preprocessing(raw_pillow_images):
     np_images = np.zeros(shape=(len(raw_pillow_images), 300, 300, 3))
 
     for i in range(len(raw_pillow_images)):
+        # just in case convert to proper format
+        raw_pillow_images[i] = raw_pillow_images[i].convert('RGB')
+
         # scale the image in a way that maps its smaller dimension to the length of 300
         wide = raw_pillow_images[i].width > raw_pillow_images[i].height
         if wide:
@@ -58,8 +62,8 @@ def preprocessing(raw_pillow_images):
             new_height = int(raw_pillow_images[i].height * 300 / raw_pillow_images[i].width)
 
         # actually scale image 
-        raw_pillow_images[i] = raw_pillow_images[i].resize((new_width, new_height))
-    
+        raw_pillow_images[i] = raw_pillow_images[i].resize((new_width, new_height))  
+
         # crop exceeding dimension
         raw_pillow_images[i] = raw_pillow_images[i].crop((0, 0, 300, 300))
     
@@ -76,24 +80,51 @@ def postprocessing(image_array):
 	return ((image_array / 2) + 0.5)
 
 
-# this function samples random images for training 
-def sample_images(classes, num_images, valid_range=(0, 10), folder='./ImageNet/content/'):
+# this function takes samples random images having index
+def sample_images_with_index(folder_index, num_images, folder):
     # init array of raw images
     my_raw_pillow_images = []
 
     # sample raw images
     for i in range(num_images):
         # sample class of the image
-        current_class = random.choice(classes)
+        current_class = random.choice(list(folder_index.keys()))
         # sample random index of image
-        index = np.random.randint(valid_range[0], valid_range[1])
+        random_index = np.random.randint(folder_index[current_class][0], folder_index[current_class][1])
         # append new image
-        my_raw_pillow_images.append(PIL.Image.open(folder + current_class + 's/' + current_class + str(index) + '.jpg'))
+        my_raw_pillow_images.append(PIL.Image.open(folder + current_class + '/' + current_class[:-1] + str(random_index) + '.jpg'))
 
     # preprocess random images
-    preprocessed_images = preprocessing(my_raw_pillow_images)
+    return preprocessing(my_raw_pillow_images)
 
-    return preprocessed_images
 
+# this function samples random images
+def sample_images(num_images, folder):
+    # read info about image set
+    with open(folder + "/index.txt", "r") as f:
+        names, indices = f.read().split("\n")
+    names = names.split(" ")
+    names.pop()
+    indices = indices.split(" ")
+    indices.pop()
+    index = {}
+
+    # pack info in a dictionary
+    for i in range(len(names)):
+        index[names[i]] = [int(indices[2*i]), int(indices[2*i+1])]
+        
+    # sample images having index
+    return sample_images_with_index(index, num_images, folder + '/images/')
+
+
+# this function protects from missing images
+def sample_image_wrapper(num_images, folder):
+    result = None
+    while result is None:
+        try:
+            result = sample_images(num_images, folder)
+        except:
+            pass
+    return result
 
 
