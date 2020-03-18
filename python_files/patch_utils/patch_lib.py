@@ -99,9 +99,8 @@ def shift_rotate(folded_patches, x_shift, y_shift, degrees):
 
 
 
-# new function for fold
 @tf.function
-def foldVariety(array_images, starting, ending, thickness, slope):
+def fold_positive_slope(array_images, starting, ending, thickness, slope):
     
     mask_fill_thickness = tf.zeros([tf.shape(array_images)[0], tf.shape(array_images)[1], thickness, 3], 
                                tf.float32, name='mask_fill_thickness')
@@ -110,28 +109,48 @@ def foldVariety(array_images, starting, ending, thickness, slope):
     
     while_condition = lambda i, array_images: tf.less(i,ending)
     def body(i, array_images):
-        mask_left = tf.slice(array_images, [0, i, 0, 0], [-1, 1, starting+i*slope, -1])
+        # tf.print("value:", starting+(ending-starting)*slope)
+        
+        mask_left = tf.cond(starting+i*slope<=tf.shape(array_images)[2],
+                            lambda: tf.slice(array_images, [0, i, 0, 0], [-1, 1, starting+i*slope, -1]),
+                            lambda: tf.slice(array_images, [0, i, 0, 0], [-1, 1, -1, -1]))
+        tf.print("mask_left:", tf.shape(mask_left))
         
         mask_right = tf.cond(starting+i*slope+thickness<=tf.shape(array_images)[2],
                              lambda: tf.slice(array_images, [0, i, starting+i*slope+thickness, 0], [-1, 1, -1, -1]),
                              lambda: tf.slice(array_images, [0, i, tf.shape(array_images)[2], 0], [-1, 1, -1, -1]))
         
+        tf.print("mask_right:", tf.shape(mask_right))
+        
         mask_negatives = tf.cond(starting+i*slope+thickness<=tf.shape(array_images)[2],
                                  lambda: tf.ones([tf.shape(array_images)[0], 1, thickness, 3],tf.float32),
-                                 lambda: tf.ones([tf.shape(array_images)[0], 1, 
-                                                  tf.shape(array_images)[2]-starting-i*slope,3],tf.float32))
+                                 lambda: tf.cond(tf.shape(array_images)[2]-starting-i*slope > 0,
+                                                 lambda: tf.ones([tf.shape(array_images)[0], 1, 
+                                                  tf.shape(array_images)[2]-starting-i*slope,3],tf.float32),
+                                                 lambda: tf.ones([tf.shape(array_images)[0],1,0,3],tf.float32)))
+        
         mask_negatives = tf.subtract(mask_negatives, 3)
-                
+        
+        tf.print("mask_negatives:", tf.shape(mask_negatives))
+        
         mask_fill_final = tf.concat([mask_left, mask_right, mask_negatives], axis=2)
+        # tf.print("mask_fill_final:", tf.shape(mask_fill_final))
         
         # Concatenating the new row into the array_images
         
         array_images_top = tf.slice(array_images, [0, 0, 0, 0], [-1, i, -1, -1])
-                
+        
+        # tf.print("array_images_top:", tf.shape(array_images_top))
+        
         array_images_bottom = tf.slice(array_images, [0, i+1, 0, 0], [-1, -1, -1, -1])
         
         array_images = tf.concat([array_images_top, mask_fill_final, array_images_bottom], axis=1)
- 
+        
+        # array_images = tf.concat([array_images_top, mask_fill_final, array_images_bottom], axis=1)
+        
+        tf.print("array_images:", tf.shape(array_images))
+        tf.print()
+
         return [tf.add(i, 1), array_images]
 
     # do the loop:
@@ -139,4 +158,66 @@ def foldVariety(array_images, starting, ending, thickness, slope):
                               shape_invariants=[i.get_shape(),tf.TensorShape(None)])
     
     return array_images
+
+@tf.function
+def fold_negative_slope(array_images, starting, ending, thickness, slope):
+    
+    mask_fill_thickness = tf.zeros([tf.shape(array_images)[0], tf.shape(array_images)[1], thickness, 3], 
+                               tf.float32, name='mask_fill_thickness')
+    
+    i = tf.constant(0, dtype=tf.int32)
+    thickness=-thickness
+    
+    while_condition = lambda i, array_images: tf.less(i,ending)
+    def body(i, array_images):
+        # tf.print("value:", starting+(ending-starting)*slope)
+        mask_right = tf.cond(starting+i*slope>=0,
+                            lambda: tf.slice(array_images, [0, i, starting+i*slope, 0], [-1, 1, -1, -1]),
+                            lambda: tf.slice(array_images, [0, i, 0, 0], [-1, 1, -1, -1]))
+        
+        tf.print("mask_right:", tf.shape(mask_right))
+        
+        mask_left = tf.cond(starting+i*slope+thickness>=0,
+                             lambda: tf.slice(array_images, [0, i, 0, 0], [-1, 1, starting+i*slope+thickness, -1]),
+                             lambda: tf.slice(array_images, [0, i, tf.shape(array_images)[2], 0], [-1, 1, 0, -1]))
+        
+        tf.print("mask_left:", tf.shape(mask_left))
+        
+        tf.print(starting+i*slope-thickness)
+        
+        mask_negatives = tf.cond(starting+i*slope+thickness>=0,
+                                 lambda: tf.ones([tf.shape(array_images)[0], 1, -thickness, 3],tf.float32),
+                                 lambda: tf.cond(starting+i*slope > 0,
+                                                 lambda: tf.ones([tf.shape(array_images)[0], 1, 
+                                                  starting+i*slope,3],tf.float32),
+                                                 lambda: tf.ones([tf.shape(array_images)[0],1,0,3],tf.float32))) 
+
+        mask_negatives = tf.subtract(mask_negatives, 3)
+        
+        # tf.print("mask_negatives:", tf.shape(mask_negatives))
+        
+        mask_fill_final = tf.concat([mask_negatives, mask_left, mask_right], axis=2)
+        # tf.print("mask_fill_final:", tf.shape(mask_fill_final))
+        
+        # Concatenating the new row into the array_images
+        
+        array_images_top = tf.slice(array_images, [0, 0, 0, 0], [-1, i, -1, -1])
+        
+        # tf.print("array_images_top:", tf.shape(array_images_top))
+        
+        array_images_bottom = tf.slice(array_images, [0, i+1, 0, 0], [-1, -1, -1, -1])
+        
+        array_images = tf.concat([array_images_top, mask_fill_final, array_images_bottom], axis=1)
+        
+        tf.print("array_images:", tf.shape(array_images))
+        tf.print()
+
+        return [tf.add(i, 1), array_images]
+
+    # do the loop:
+    i, array_images = tf.while_loop(while_condition, body, [i, array_images], 
+                              shape_invariants=[i.get_shape(),tf.TensorShape(None)])
+    
+    return array_images
+    
 
