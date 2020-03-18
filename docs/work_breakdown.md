@@ -45,7 +45,7 @@ layout: default
   </table>
   
   <div class = "row">
-      <center><div class = "column">
+      <div class = "column">
          <h3>Michael</h3>
           <ul>
             <li>Literature Review</li>
@@ -56,8 +56,8 @@ layout: default
               <li>Website/Presentations</li> 
               <li>Documentation</li>
            </ul>
-        </div></center>
-      <center><div class = "column">
+        </div>
+      <div class = "column">
          <center><h3>Viacheslav</h3></center>
         <ul>
           <li>Literature Review</li>
@@ -68,5 +68,5 @@ layout: default
             <li>ANN Training/Evaluating</li> 
             <li>Android Application</li>
            </ul>
-        </div></center>
+        </div>
     </div></html>
