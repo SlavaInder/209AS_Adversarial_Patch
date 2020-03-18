@@ -2,7 +2,7 @@
 layout: default
 ---
 # Platforms
-- ImageNet dataset: images are downloaded, labelled, and sorted into training, testing, and validation sets based upon their respectives classes
+- ImageNet dataset: images are downloaded, labelled, and sorted into training, testing, and validation sets based upon their respectives classes; the training set contained 100 classes with 5 images each, the testing and validation sets each contained 50 classes with 15 images each
 - Inceptionv3: image classifier 
 - Python/TensorFlow: coding platform for creating image classifier, perturbing images, and mounting adversarial attacks
 
