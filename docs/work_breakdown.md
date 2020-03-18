@@ -58,7 +58,7 @@ layout: default
            </ul>
         </div>
       <div class = "column">
-         <center><h3>Viacheslav</h3></center>
+         <h3>Viacheslav</h3>
         <ul>
           <li>Literature Review</li>
             <li>EMG Cleaning</li>
