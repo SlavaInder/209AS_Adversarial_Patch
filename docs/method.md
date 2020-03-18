@@ -19,7 +19,7 @@ These steps are to be implemented in a single TensorFlow session and executed wi
 - applicator(mapped_patches, original_images): applies the patch to the image
 - multiply(single_patch, train_images): creates multiple copies of the patch for the incoming set of images
 - shift_rotate(folded_patches, x_shift, y_shift, degrees): shifts the patch the patch vertically/horizontally across the image and rotates the patch given a value of degrees
-- fold_positive_slope(array_images, starting, ending, thickness, slope) {also fold_negative_slope}: performs the folding operation to apply to the patch
+- fold(array_images, starting, ending, thickness, slope): performs the folding operation to apply to the patch
 
 # Folding Function
 In order to keep the goal of the project consistent, the type of folds evaluated within this project were defined stringently into categories of linear or vertical folds. Linear folds would be executed given a starting point (in relation to the column), an ending point (in relation to the row), a thickness, and a slope. The pixels within the range of thickness along this starting and ending point would then be removed and the remaining pixels would be appended by the row. The starting column of removal of each row would alter depending on the slope provided into the function. Similarly, a vertical fold would consist of a starting point, an ending point, and a thickness. The slope parameter for vertical folds would be set to be 0. 
