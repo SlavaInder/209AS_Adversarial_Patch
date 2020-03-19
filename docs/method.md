@@ -62,7 +62,7 @@ In order to test the validity and feasibility of our approach, a proof of concep
   display: table;
 }
 </style></head>
-  <body><p>
+  <body>
   <div class="row">
   <div class="column">
         <figure>
@@ -77,7 +77,6 @@ In order to test the validity and feasibility of our approach, a proof of concep
     </figure>
   </div>
 </div>
-
 </body>
 </html>
 
