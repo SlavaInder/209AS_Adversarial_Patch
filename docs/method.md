@@ -45,21 +45,10 @@ In order to test the validity and feasibility of our approach, a proof of concep
 
 <html>
   <head><style>
-* {
-  box-sizing: border-box;
-}
-
 .column {
   float: left;
   width: 50%;
   padding: 5px;
-}
-
-/* Clearfix (clear floats) */
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
 }
 </style></head>
   <body>
