@@ -22,4 +22,9 @@ layout: default
 
 [7] Pautov M. et al, "On adversarial patches: real-world attack opn ArcFace-100 face recognition system", 2019.
 
-[8] Thys S. et al, "Fooling automated surveillance cameras: adversarial patches to attack person detection", 2019. 
+[8] Thys S. et al, "Fooling automated surveillance cameras: adversarial patches to attack person detection", 2019.
+
+## Image Sources
+[1] Wrinkles: https://netdna.coolthings.com/wp-content/uploads/2013/04/woolprince2.jpg
+[2] Pandas from "Explaining and Harnessing Adversarial Examples": https://miro.medium.com/max/2000/1*PmCgcjO3sr3CPPaCpy5Fgw.png
+[3]
