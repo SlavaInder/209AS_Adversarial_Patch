@@ -49,6 +49,15 @@ for i from start_x to end_x:
   </body>
 </html>
 
+<html>
+  <body><p>
+  <center><figure>
+    <img src="images/linear_folded.png" style = "max-width:80%">
+    <center><figcaption>Example of a Linear Fold</figcaption></center>
+    </figure></center></p>
+  </body>
+</html>
+
 # Proof of Concept
 In order to test the validity and feasibility of our approach, a proof of concept model was performed with a vanilla training algorithm. The goal is to demonstrate that a strong permutation of the adversarial patch could still achieve the goal of fooling the classifier into a misclassification which implicitly demonstrates the functionality of other smaller and variant perturbations. Therefore a simple yet large fold was applied onto an adversarial patch and fed into our pipeline. After collecting our results, we observed that the distorted patch still produced the expected outcome of fooling the classifier. Therefore, we can proceed into creating a patch with smaller yet highly variant and unpredictable perturbations that could still lead to the misclassification of inputs. 
 
