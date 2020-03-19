@@ -70,4 +70,14 @@ In order to test the validity and feasibility of our approach, a proof of concep
   </body>
 </html>
 
+# Pipeline
+<html>
+  <body><p>
+  <center><figure>
+    <img src="images/pipeline.png" style = "max-width:80%">
+    <center><figcaption>Pipeline for Creating Robust Adversarial Patch</figcaption></center>
+    </figure></center></p>
+  </body>
+</html>
+
 # Tensorboard
