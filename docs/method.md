@@ -22,23 +22,32 @@ These steps are to be implemented in a single TensorFlow session and executed wi
 - fold(array_images, starting, ending, thickness, slope): performs the folding operation to apply to the patch
 
 # Folding Function
-In order to keep the goal of the project consistent, the type of folds evaluated within this project were defined stringently into categories of linear or vertical folds. Linear folds would be executed given a starting point (in relation to the column), an ending point (in relation to the row), a thickness, and a slope. The pixels within the range of thickness along this starting and ending point would then be removed and the remaining pixels would be appended by the row. The starting column of removal of each row would alter depending on the slope provided into the function. Similarly, a vertical fold would consist of a starting point, an ending point, and a thickness. The slope parameter for vertical folds would be set to be 0. 
+In order to keep the goal of the project consistent, the type of folds evaluated within this project were defined stringently into categories of linear or vertical/horizontal folds. Linear folds would be executed given a starting point (in relation to the column), an ending point (in relation to the row), and a thickness. The pixels within the range of thickness along this starting and ending point would then be removed and the remaining pixels would be appended by the row. The starting column of removal of each row would alter depending on the slope provided into the function. Similarly, a vertical/horizontal fold would consist of a starting point, an ending point, and a thickness. The x coordinates of the starting and ending points will be the same for a vertical fold, and the y coordinates of the starting and ending points will be the same for a horizontal fold.
 
 ```
-# input parameters: start, end, thickness, slope, images
-for i to end:
+# input parameters: start(x,y), end(x,y), thickness, images, slope (calculated from start and end coordinates)
+for i from start_x to end_x:
   # Perform row by row evaluation 
-  Obtain left columns of the row from the fold
-  Obtain right columns of the row from the fold
+  # Update new start_y with slope 
+  Obtain left columns of the row from the fold from (start_y)
+  Obtain right columns of the row from the fold from (start_y + thickness)
   Obtain tf.tensor for fill
   new_folded_row = Concatenate [left columns, fill, right columns] along axis=2
   
   # Append the newly folded row into image
-  Obtain top rows from i 
-  Obtain bottom rows from i
+  Obtain top rows prior to i 
+  Obtain bottom rows after i
   new_folded_images = Concatenate [top rows, new_folded_row, bottome rows] along axis=1
 ```
-The operations of the folding function differ depending upon the incoming slope's sign. 
+
+<html>
+  <body><p>
+  <center><figure>
+    <img src="images/folded.png" style = "max-width:80%">
+    <center><figcaption>Example of a Vertical Fold</figcaption></center>
+    </figure></center></p>
+  </body>
+</html>
 
 # Proof of Concept
 In order to test the validity and feasibility of our approach, a proof of concept model was performed with a vanilla training algorithm. The goal is to demonstrate that a strong permutation of the adversarial patch could still achieve the goal of fooling the classifier into a misclassification which implicitly demonstrates the functionality of other smaller and variant perturbations. Therefore a simple yet large fold was applied onto an adversarial patch and fed into our pipeline. After collecting our results, we observed that the distorted patch still produced the expected outcome of fooling the classifier. Therefore, we can proceed into creating a patch with smaller yet highly variant and unpredictable perturbations that could still lead to the misclassification of inputs. 
