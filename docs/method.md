@@ -44,29 +44,12 @@ The operations of the folding function differ depending upon the incoming slope'
 In order to test the validity and feasibility of our approach, a proof of concept model was performed with a vanilla training algorithm. The goal is to demonstrate that a strong permutation of the adversarial patch could still achieve the goal of fooling the classifier into a misclassification which implicitly demonstrates the functionality of other smaller and variant perturbations. Therefore a simple yet large fold was applied onto an adversarial patch and fed into our pipeline. After collecting our results, we observed that the distorted patch still produced the expected outcome of fooling the classifier. Therefore, we can proceed into creating a patch with smaller yet highly variant and unpredictable perturbations that could still lead to the misclassification of inputs. 
 
 <html>
-  <head><style>
-.column {
-  float: left;
-  width: 50%;
-  padding: 5px;
-}
-</style></head>
-  <body>
-  <div class="row">
-  <div class="column">
-        <figure>
-    <img src="images/ap_poc.png" alt="Mountains" style="width:100%">
-      <center><figcaption>Adversarial Patch</figcaption></center>
-    </figure>
-  </div>
-  <div class="column">
-    <figure>
-    <img src="images/poc.png" alt="Mountains" style="width:100%">
-      <center><figcaption>Vanilla Training Algorithm Result</figcaption></center>
-    </figure>
-  </div>
-</div>
-</body>
+  <body><p>
+  <center><figure>
+    <img src="images/poc.png" style = "max-width:80%">
+    <center><figcaption>Proof of Concept</figcaption></center>
+    </figure></center></p>
+  </body>
 </html>
 
 # Tensorboard
