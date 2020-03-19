@@ -29,4 +29,13 @@ This slight deviation, although unapparent to the human eye, can be reliably mou
 # Today's Status and Novelty
 Currently, there exists research papers detailing the adaptability of patches in a 2D environment. These include testing against translations, rotations, illuminations, and scaling. Despite the ventures within this area of adaptability, there does not exist a discussion of transformations equivalent nor similar to the concept of folds. Therefore, we look to present a new metric of patch transformation that will allow it to be transferrable to the real-world. This concept covers the basis that shirts, patches, stickers, and other physical adversarial examples are subject to wrinkles or folds due to orientation of the product, posture of the individual wearing the product, or even ambient conditions such as wind. The highly variant and unpredictable nature of this transformation makes it difficult to succinctly describe. This potential issue along with its use case solely in a real-world environment are possible reasons as to why it has yet to be detailed. 
 
+<html>
+  <body><p>
+  <center><figure>
+    <img src="https://netdna.coolthings.com/wp-content/uploads/2013/04/woolprince2.jpg" style = "max-width:80%">
+    <center><figcaption>Examples of Wrinkles/Folds</figcaption></center>
+    </figure></center></p>
+  </body>
+</html>
+
 Additionally, there are works that delve into creating real-world use cases for object detection models. These examples include adversarial hats, glasses, and clothes, all of which possess an adversarial characteristic to fool real-world computer vision systems. On the other hand, these papers did not detail the robustness of their products when subject to wrinkles, folds, or other visual oscurities. Therefore, our project remains novel in exploring the impact of physical deformities that are likely to occur with these real-world adversarial attacks while also presenting the novel concept of folds as a transformation. Additionally, our experiment takes into account the previously described perturbations of translation, rotation, illumination, and scaling along with a folding factor to create a physically robust adversarial patch across previously researched variations as well. 
