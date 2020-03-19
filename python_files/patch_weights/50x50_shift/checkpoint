@@ -1,2 +1,0 @@
-model_checkpoint_path: "50x50_shift"
-all_model_checkpoint_paths: "50x50_shift"

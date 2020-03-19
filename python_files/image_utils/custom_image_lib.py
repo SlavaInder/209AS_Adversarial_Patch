@@ -163,19 +163,19 @@ def sample_dot(size, thickness, side):
     # top
     if side == 0:
         y = size
-        x = np.random.randint(thickness+1, size-thickness-1)
+        x = np.random.randint(thickness+2, size-thickness-2)
     # right
     elif side == 1:
         x = size
-        y = np.random.randint(thickness+1, size-thickness-1)
+        y = np.random.randint(thickness+2, size-thickness-2)
     # bottom
     elif side == 2:
         y = 0
-        x = np.random.randint(thickness+1, size-thickness-1)
+        x = np.random.randint(thickness+2, size-thickness-2)
     # left
     else:
         x = 0
-        y = np.random.randint(thickness+1, size-thickness-1)
+        y = np.random.randint(thickness+2, size-thickness-2)
 
     return x, y
 
