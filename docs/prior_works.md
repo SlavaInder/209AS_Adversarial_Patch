@@ -26,5 +26,7 @@ layout: default
 
 ## Image Sources
 [1] Wrinkles: https://netdna.coolthings.com/wp-content/uploads/2013/04/woolprince2.jpg
+
 [2] Pandas from "Explaining and Harnessing Adversarial Examples": https://miro.medium.com/max/2000/1*PmCgcjO3sr3CPPaCpy5Fgw.png
+
 [3]
