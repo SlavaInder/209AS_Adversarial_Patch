@@ -128,3 +128,55 @@ def sample_image_wrapper(num_images, folder):
     return result
 
 
+# this function samples fold for an image of given size
+def fold_sampler(size, thickness):
+    # choose a start side
+    start_side = np.random.randint(0, 4)
+
+    # top
+    if start_side == 0:
+        x_start, y_start = sample_dot(size, thickness, 0)
+        x_end, y_end = sample_dot(size, thickness, 1)
+    # right
+    elif start_side == 1:
+        x_start, y_start = sample_dot(size, thickness, 1)
+        x_end, y_end = sample_dot(size, thickness, 2)
+    # bottom
+    if start_side == 2:
+        x_start, y_start = sample_dot(size, thickness, 2)
+        x_end, y_end = sample_dot(size, thickness, 3)
+    # left
+    if start_side == 3:
+        x_start, y_start = sample_dot(size, thickness, 3)
+        x_end, y_end = sample_dot(size, thickness, 0)
+
+    return x_start, y_start, x_end, y_end
+
+
+#        end_side = np.random.choice((1, 2, 3), 1)[0]
+        
+
+
+
+# this function samples fold for an image of given size
+def sample_dot(size, thickness, side):
+    # top
+    if side == 0:
+        y = size
+        x = np.random.randint(thickness+1, size-thickness-1)
+    # right
+    elif side == 1:
+        x = size
+        y = np.random.randint(thickness+1, size-thickness-1)
+    # bottom
+    elif side == 2:
+        y = 0
+        x = np.random.randint(thickness+1, size-thickness-1)
+    # left
+    else:
+        x = 0
+        y = np.random.randint(thickness+1, size-thickness-1)
+
+    return x, y
+
+
