@@ -1,10 +1,7 @@
 ---
 layout: default
 ---
-
-# Results
-
-# Examples
+# Preliminary Results
 
 <html>
   <body><p>
@@ -33,4 +30,7 @@ layout: default
   </body>
 </html>
 
+# Final Results
+
 # Evaluation
+Based upon our results, we demonstrate the feasibility of creating an adversarial patch robust to folds, rotations, translations, and scaling. Overall our adversarial patch does not 
