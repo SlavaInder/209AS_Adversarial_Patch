@@ -56,11 +56,11 @@ for i from start_x to end_x:
     <center><figcaption>Example of a Linear Fold</figcaption></center>
     </figure></center>
   <center><figure>
-    <img src="https://media.giphy.com/media/d9AzPw66z5KEze1WET/giphy.gif" style = "max-width:80%">
+    <img src="https://media.giphy.com/media/d9AzPw66z5KEze1WET/giphy.gif" style = "max-width:50%">
     <center><figcaption>Fold Example 1</figcaption></center>
     </figure></center>
   <center><figure>
-    <img src="https://media.giphy.com/media/WmXDWR7OMjVObNqrm6/giphy.gif" style = "max-width:80%">
+    <img src="https://media.giphy.com/media/WmXDWR7OMjVObNqrm6/giphy.gif" style = "max-width:50%">
     <center><figcaption>Fold Example 2</figcaption></center>
     </figure></center>
   </body>
