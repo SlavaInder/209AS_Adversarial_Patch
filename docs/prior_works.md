@@ -8,7 +8,7 @@ layout: default
 
 
 # References 
-[1] Szegedy C. et. al, "Going deeper with convolutions", technical report, 2014.
+[1] Szegedy C. et al, "Going deeper with convolutions", technical report, 2014.
 
 [2] Goodfellow I. et al, "Explaining and Harnessing Adversarial examples", ICLR, 2015.
 
@@ -23,6 +23,8 @@ layout: default
 [7] Pautov M. et al, "On adversarial patches: real-world attack opn ArcFace-100 face recognition system", 2019.
 
 [8] Thys S. et al, "Fooling automated surveillance cameras: adversarial patches to attack person detection", 2019.
+
+[9] Xu Kaidi et al, "Adversarial T-shirt! Evading Person Detectors in A Physical World", 2019
 
 ## Image Sources
 [1] Wrinkles: https://netdna.coolthings.com/wp-content/uploads/2013/04/woolprince2.jpg
