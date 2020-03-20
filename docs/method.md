@@ -62,7 +62,7 @@ for i from start_x to end_x:
   <center><figure>
     <img src="https://media.giphy.com/media/WmXDWR7OMjVObNqrm6/giphy.gif" style = "max-width:50%">
     <center><figcaption>Fold Example 2</figcaption></center>
-    </figure></center>
+    </figure></center></p>
   </body>
 </html>
 
