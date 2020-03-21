@@ -36,7 +36,7 @@ layout: default
     </tr>
      <tr>
       <td>March 9th - 13th</td>
-      <td>Update website; Test against different neural networks</td>
+      <td>Update website; Continue to test patch with different folds; Observe dependency between patch size and aaccuracy</td>
     </tr>
      <tr>
       <td>March 16th - 20th</td>
@@ -46,27 +46,23 @@ layout: default
   
   <div class = "row">
       <div class = "column">
-         <h3>Michael</h3>
+         <h3>Viacheslav</h3>
           <ul>
             <li>Literature Review</li>
-              <li>EMG Data Collection</li>
-              <li>Dataset Compilation</li> 
-              <li>Feature Extraction Code</li>
-              <li>ANN Training/Evaluating</li>
-              <li>Website/Presentations</li> 
-              <li>Documentation</li>
+              <li>TensorFlow Pipeline</li>
+              <li>Image Modifications</li> 
+              <li>Training Classifier</li>
+              <li>Fold Functionality</li>
            </ul>
         </div>
       <div class = "column">
-         <h3>Viacheslav</h3>
+         <h3>Michael</h3>
         <ul>
           <li>Literature Review</li>
-            <li>EMG Cleaning</li>
-            <li>EMG Data Collection</li>
-            <li>Dataset Compilation</li> 
-            <li>Feature Extraction Code</li>
-            <li>ANN Training/Evaluating</li> 
-            <li>Android Application</li>
+            <li>ImageNet Dataset Collection</li>
+            <li>Training Classifier</li>
+            <li>Documentation</li> 
+            <li>Fold Functionality</li>
            </ul>
         </div>
     </div></html>

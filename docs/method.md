@@ -40,14 +40,14 @@ for i from start_x to end_x:
   new_folded_images = Concatenate [top rows, new_folded_row, bottome rows] along axis=1
 ```
 
-<html>
+<!--<html>
   <body><p>
   <center><figure>
     <img src="images/folded.png" style = "max-width:80%">
     <center><figcaption>Example of a Vertical Fold</figcaption></center>
     </figure></center></p>
   </body>
-</html>
+</html>-->
 
 <html>
   <body><p>
@@ -55,6 +55,14 @@ for i from start_x to end_x:
     <img src="images/linear_folded.png" style = "max-width:80%">
     <center><figcaption>Example of a Linear Fold</figcaption></center>
     </figure></center></p>
+  <!--<center><figure>
+    <img src="https://media.giphy.com/media/d9AzPw66z5KEze1WET/giphy.gif" style = "max-width:50%">
+    <center><figcaption>Fold Example 1</figcaption></center>
+    </figure></center>
+  <center><figure>
+    <img src="https://media.giphy.com/media/WmXDWR7OMjVObNqrm6/giphy.gif" style = "max-width:50%">
+    <center><figcaption>Fold Example 2</figcaption></center>
+    </figure></center></p>-->
   </body>
 </html>
 
