@@ -5,13 +5,13 @@ Here is a link to our github pages:
 https://slavainder.github.io/209AS-winter-2020/ 
 
 Here is a link to our dataset:
-
+https://drive.google.com/open?id=1XkeubLCzxB4pCShi9ek0rFxWR45Oo-0Y
 
 To setup repo and run learning:
 1. Download and unpack repo.
 2. Change directory to python_files
 3. Download inception weights from http://download.tensorflow.org/models/inception_v3_2016_08_28.tar.gz
 4. Unpack it in the folder ./inception_v3_2016_08_28
-5. Download Dataset from 
+5. Download dataset from https://drive.google.com/open?id=1XkeubLCzxB4pCShi9ek0rFxWR45Oo-0Y
 6. Unpack dataset in the folder ./ImageNet
 7. Run ./main.ipynb
