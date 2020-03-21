@@ -1,11 +1,17 @@
-Our new idea:
-- create an adversarial attack that gives the impression of multiple objects rather than reduce the amount of objects classified as seen by more recent adversarial attacks
-- WHAT WE SAY: We will work on making a physical adversarial patch robust against physical alterations such as wrinkles, bending, curvature
-    - motivation: it allows for more adaptable usage of adversarial attacks against object detection systems
-    - a side thought for this proposal would be to fool object detection systems into multiple classifications of an object vs the traditional attack that reduces the accuracy of the model 
-    - our particular target is object detection within traffic video surveillance 
-        - our side thought was to explore the possibility of tricking the model into additional misclassifications
+This is a github repo for UCLA 209AS Cybersecurity project (winter 2020).
+Authors: Viacheslav Inderiakin and Michael Kim.
 
-NOtes for repo setup: you have to manually donwload inception 3 weights from tf. repo, create wenv 3with python=3.5 and create folder for graphs.
-
+Here is a link to our github pages:
 https://slavainder.github.io/209AS-winter-2020/ 
+
+Here is a link to our dataset:
+
+
+To setup repo and run learning:
+1. Download and unpack repo.
+2. Change directory to python_files
+3. Download inception weights from http://download.tensorflow.org/models/inception_v3_2016_08_28.tar.gz
+4. Unpack it in the folder ./inception_v3_2016_08_28
+5. Download Dataset from 
+6. Unpack dataset in the folder ./ImageNet
+7. Run ./main.ipynb
