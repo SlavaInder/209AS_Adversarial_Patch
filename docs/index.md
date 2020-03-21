@@ -16,5 +16,8 @@ In order to fulfill the goal of our project, we created a set of distorted adver
 
 # Our Slides
 
+<html><center>
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSpfvTujFFzwJJI-fgL5szJMxGICSGExFrnamw1toci1JUk99jaGR1f9FXAQnioMjuvIUb7TINthviH/embed?start=false&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></center></html?
+
 # Presentation
 
