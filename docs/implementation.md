@@ -7,7 +7,7 @@ In order to determine how successful our patches were, we collected a concrete s
 - Top-5 accuracy: number of images that produced the target class within its top 5 probabilistic measurements
 - Average accuracy: average accuracy measurement of the target class across the entire dataset
 
-For clarification, for the purposes of our project, accuracy is considered the probability that the classifier would mislabell the input image. Additionally, it is important to note that our results are inherently probabilistic. Therefore, repeated trials of our experiment are likely to yield similar, but not duplicate results. 
+For clarification, for the purposes of our project, accuracy is considered the probability that the classifier would mislabel the input image. Additionally, it is important to note that our results are inherently probabilistic. Therefore, repeated trials of our experiment are likely to yield similar, but not duplicate results. 
 
 # Results
 <html>
@@ -19,6 +19,8 @@ For clarification, for the purposes of our project, accuracy is considered the p
   </body>
 </html>
 
+After demonstrating that the adversarial patch is robust under folds and other transformations, the effect of the patch size with the attack model's rate of success was tested. We trained and tested our adversarial patch of different sizes ranging from 50x50 pixels to 150x150 pixels to determine if there would be any existing correlation betweeen the two.
+
 <html>
   <body><p>
   <center><figure>
@@ -27,6 +29,8 @@ For clarification, for the purposes of our project, accuracy is considered the p
     </figure></center></p>
   </body>
 </html>
+
+Based upon the table above, it can be seen that the average accuracy of the patch is strongly correlated to the size of the patch. With smaller iterations of the patch, the accuracy of the patch reduced significantly reached a steady point/plateau when the patch was greater than 6% of the image. This relationship is graphically shown in the plots below. 
 
 <html>
   <body><p>
@@ -59,4 +63,11 @@ Based upon the tables and plots above, it was seen that the 150x150 patch demons
 
 
 # Evaluation
-Based upon our results, we demonstrate the feasibility of creating an adversarial patch robust to folds, rotations, translations, and scaling. Overall our adversarial patch does not 
+Based upon our results, we demonstrate the feasibility of creating an adversarial patch robust to folds, rotations, translations, and scaling. Overall our adversarial patch demonstrated high accuracy with folds and was able to fool Inceptionv3 at a reliable rate. With our results, came a few observations regarding the relationship between our adversarial patch and the success rate of the model. 
+
+#### Observations: 
+- Larger patches led to a higher rate of success as seen by our tables and graphs above
+- Patches that were closer to the center of the image led to a higher rate of success; this can potentially be tied to the concept of frequency shifts present across the majority of natural images
+- Accuracy dramatically decreases near picture edges, concerning the geometric relationship between the patch and the image wherein there exists some cases where there exists little overlap after transformation
+- Target class was almost always present in the Top-5 probabilistic classifications as seen by the high Top-5 accuracy metrics across most patch sizes
+- Non-linear relationship between patch sizes and accuracy metrics 
